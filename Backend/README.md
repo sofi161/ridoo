@@ -2,7 +2,7 @@
 
 ## Endpoint
 
-**POST** `/register`
+**POST** `/users/register`
 
 ## Description
 
@@ -73,3 +73,48 @@ The request body should be in JSON format with the following structure:
 
 - **201**: User successfully registered.
 - **400**: Bad request due to input validation errors.
+
+# User Login Endpoint Documentation
+
+## Endpoint
+
+**POST** `/users/login`
+
+## Request Data
+
+The request body should be in JSON format with the following structure:
+
+```json
+{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}
+```
+
+### Field Requirements
+
+- **email**: Must be a valid email address.
+- **password**: Required; must be at least 6 characters long.
+
+## Response
+
+### Successful Registration
+
+- **Status Code**: 201 Created
+- **Response Body**:
+
+```json
+{
+  "token": "JWT_Token",
+  "user": {
+    "fullName": {
+      "firstName": "test2_firstname",
+      "lastName": "test2_lastname"
+    },
+    "_id": "68df65e8995d11ab317952fe",
+    "email": "test2@test.com",
+    "password": "$2b$10$LWH0jcaZg49N9jrw7tf6vet7YEiPTtdm1BhRaU7coOgHwUv9vs1xG",
+    "__v": 0
+  }
+}
+```
